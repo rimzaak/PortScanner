@@ -22,14 +22,14 @@ print ("-" * 60)
 def get_absolute_path(relative_path):
     dir = os.path.dirname(os.path.abspath(__file__))
     split_path = relative_path.split("/")
-    absolute_path = os.path.join(new, *split_path)
+    absolute_path = os.path.join(dir, *split_path)
     return absolute_path
 
 # Check what time the scan started
 t1 = datetime.now()
 
 # Pull port range from config.json
-with open(get_absolute_path('/config.json')) as config_file:
+with open(get_absolute_path('../../config.json')) as config_file:
     config = json.load(config_file)
     loRange = int(config['range']['low'])
     hiRange = int(config['range']['high'])
